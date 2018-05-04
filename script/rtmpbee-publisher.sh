@@ -69,7 +69,7 @@ for ((i=0;i<amount;i++)); do
   stream_file="${file}_${i}"
   cp "$file" "$stream_file"
   # </dev/null tells ffmpeg to not look for input
-  ffmpeg -re -stream_loop -1 -fflags +genpts -i "$stream_file" -c copy -f flv "$target" 2>/dev/null &
+  ffmpeg -re -stream_loop -1 -fflags +genpts -i "$stream_file" -vcodec libx264 -acodec aac -vb 750k -vprofile baseline -level 2.1 -ab 56000 -ar 44100 -ac 2 -c copy -f flv "$target" 2>/dev/null &
   isLast=0
   if [ $i -eq $((amount - 1)) ]; then
     isLast=1
