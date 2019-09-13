@@ -9,7 +9,7 @@ RTMP Bee Publisher
 
 ## Using ffmpeg
 ```sh
-$ ffmpeg -i big_buck_bunny_480p_surround-fix.avi -y -ab 56k -ar 44100 -b:a 54k -b:v 750k -r 24 -f flv output.flv
+$ ffmpeg -i big_buck_bunny_480p_surround-fix.avi -y -ab 56k -ar 44100 -b:a 54k -b:v 750k -r 24 -c:a aac -c:v libx264 -f flv output.flv
 ```
 
 # Streaming
